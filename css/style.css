@@ -1,0 +1,226 @@
+		@font-face {
+			font-family: "OpenSans Light";
+			src: url("fonts/OpenSans-Light.ttf");
+		}
+		body { font-family: 'OpenSans Light', Arial, sans-serif; }
+		.body { max-width: 1600px; display: block; margin: auto; background-color: white }
+		.backgroundHeader { background-color: #23261e; height: 70px; border-top: 10px solid #7cb71b; width: 100%; position: absolute; top: 0px; z-index: -1; }
+		.sectionTitle { margin-top: 25px; border-bottom: 2px solid #7cb71b; padding: 5px 5px 0px 8px; font-size: 1.3em; }
+		.sectionTitle2 { font-weight: bold; margin: 25px 0px 10px; border-bottom: 2px solid #23261e; padding: 5px 5px 0px 8px; font-size: 1.3em; }
+		.sectionTitle3 { border-bottom: 2px solid #7cb71b; font-size: 1.1em; font-weight: bold; margin: 25px 10px 10px 10px; }
+		.navbar-default { background-color: white; border-radius: 0px; padding: 0px 40px;}
+		.navbar-default .navbar-nav > .active > a { background-color: #ededed; border-bottom: 3px solid #7cb71b }
+		.navbar-default .navbar-nav > li > a:hover { background-color: #ededed;}
+		#carousel1 .carousel-control.left {
+			background: rgba(92,92,92,0.19);
+			background: -moz-linear-gradient(left, rgba(92,92,92,0.19) 0%, rgba(92,92,92,0.18) 0%, rgba(255,255,255,0.04) 78%, rgba(255,255,255,0) 100%);
+			background: -webkit-gradient(left top, right top, color-stop(0%, rgba(92,92,92,0.19)), color-stop(0%, rgba(92,92,92,0.18)), color-stop(78%, rgba(255,255,255,0.04)), color-stop(100%, rgba(255,255,255,0)));
+			background: -webkit-linear-gradient(left, rgba(92,92,92,0.19) 0%, rgba(92,92,92,0.18) 0%, rgba(255,255,255,0.04) 78%, rgba(255,255,255,0) 100%);
+			background: -o-linear-gradient(left, rgba(92,92,92,0.19) 0%, rgba(92,92,92,0.18) 0%, rgba(255,255,255,0.04) 78%, rgba(255,255,255,0) 100%);
+			background: -ms-linear-gradient(left, rgba(92,92,92,0.19) 0%, rgba(92,92,92,0.18) 0%, rgba(255,255,255,0.04) 78%, rgba(255,255,255,0) 100%);
+			background: linear-gradient(to right, rgba(92,92,92,0.19) 0%, rgba(92,92,92,0.18) 0%, rgba(255,255,255,0.04) 78%, rgba(255,255,255,0) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5c5c5c', endColorstr='#ffffff', GradientType=1 );
+		}
+		#carousel1 .carousel-control.right {
+			background: rgba(255,255,255,0);
+			background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0.04) 22%, rgba(92,92,92,0.18) 100%);
+			background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,0)), color-stop(22%, rgba(255,255,255,0.04)), color-stop(100%, rgba(92,92,92,0.18)));
+			background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0.04) 22%, rgba(92,92,92,0.18) 100%);
+			background: -o-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0.04) 22%, rgba(92,92,92,0.18) 100%);
+			background: -ms-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0.04) 22%, rgba(92,92,92,0.18) 100%);
+			background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.04) 22%, rgba(92,92,92,0.18) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#5c5c5c', GradientType=1 );
+		}
+		#carousel1 .carousel-control.left:hover {
+			background: rgba(92,92,92,0.19);
+			background: -moz-linear-gradient(left, rgba(92,92,92,0.19) 0%, rgba(92,92,92,0.18) 0%, rgba(255,255,255,0.1) 47%, rgba(255,255,255,0) 100%);
+			background: -webkit-gradient(left top, right top, color-stop(0%, rgba(92,92,92,0.19)), color-stop(0%, rgba(92,92,92,0.18)), color-stop(47%, rgba(255,255,255,0.1)), color-stop(100%, rgba(255,255,255,0)));
+			background: -webkit-linear-gradient(left, rgba(92,92,92,0.19) 0%, rgba(92,92,92,0.18) 0%, rgba(255,255,255,0.1) 47%, rgba(255,255,255,0) 100%);
+			background: -o-linear-gradient(left, rgba(92,92,92,0.19) 0%, rgba(92,92,92,0.18) 0%, rgba(255,255,255,0.1) 47%, rgba(255,255,255,0) 100%);
+			background: -ms-linear-gradient(left, rgba(92,92,92,0.19) 0%, rgba(92,92,92,0.18) 0%, rgba(255,255,255,0.1) 47%, rgba(255,255,255,0) 100%);
+			background: linear-gradient(to right, rgba(92,92,92,0.19) 0%, rgba(92,92,92,0.18) 0%, rgba(255,255,255,0.1) 47%, rgba(255,255,255,0) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5c5c5c', endColorstr='#ffffff', GradientType=1 );
+		}
+		#carousel1 .carousel-control.right:hover {
+			background: rgba(255,255,255,0);
+			background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 53%, rgba(92,92,92,0.18) 100%);
+			background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,0)), color-stop(53%, rgba(255,255,255,0.1)), color-stop(100%, rgba(92,92,92,0.18)));
+			background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 53%, rgba(92,92,92,0.18) 100%);
+			background: -o-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 53%, rgba(92,92,92,0.18) 100%);
+			background: -ms-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 53%, rgba(92,92,92,0.18) 100%);
+			background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 53%, rgba(92,92,92,0.18) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#5c5c5c', GradientType=1 );
+		}
+		#carousel1 { height: 366px; border: 1px solid lightgrey; border-top: 0px; border-radius: 4px;}
+		#carousel1 a { opacity: 1; }
+		.carousel .carousel-indicators li { border: 1px solid darkgrey; }
+		.carousel .carousel-indicators .active { background-color: darkgrey }
+		.carousel .carousel-control .glyphicon { color: darkgrey; }
+		.carousel .carousel-control .glyphicon:hover { color: #6b6b6b; }
+		.btn { background-color: #7cb71b; color: white; }
+		.btn:hover { background-color: #6a9e16 }
+		a { color: #7cb71b; }
+		a:hover { color: #638925; }
+		.float-right { float: right; }
+		.block { display: block; }
+
+		.carousel-small .carousel-control.left, #carousel2 .carousel-control.left:hover { background: unset; width: 5%;}
+		.carousel-small .carousel-control.right, #carousel2 .carousel-control.right:hover { background: unset; width: 5%;}
+		.carousel-small .carousel-indicators { bottom: 0px; }
+
+		/* HeaderTop */
+		.headerTop { display: block; height: 60px; background-color: #23261e }
+		.logo { padding-left: 70px; display: inline-block; width: 268px; }
+		.login, .register, .cart, .userProfile { float: right; }
+		.login, .register, .userProfile { margin-top: 11px; font-size: 1.1em;}
+		.register { margin-left: 5px; color: #7cb71b; background-color: unset;}
+		.userProfile { margin-top: 7px; }
+		.userProfile .profpic { width: 32px; height: 32px; background-color: white; border-radius: 3px; }
+		.cart { width: unset; margin-right: 56px; }
+		.cartBtn { min-width: 135px; border: 0px; background-color: #7cb71b; color: white; padding-top: 5px; padding-bottom: 5px}
+		.cart-icon { display: block; font-size: 1.3em;}
+		.cart-info { font-size: 0.9em;}
+		.cart-dropdown { right: 0; left: unset; padding: 8px; min-width: 250px;}
+		.cartItem { display: flex; max-height: 80px; border-top: 1px solid lightgrey; padding-top: 5px; margin-bottom: 7px; }
+		.cartItem img { width: 50px; display: inline-block; vertical-align: top}
+		.cartItem-info { display: inline-block; padding-left: 6px; min-width: 176px;}
+		.cartItem-name { font-size: 1em; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; max-width: 280px;}
+		.cartItem-author { font-size: 0.8em; height: 38px; }
+		.cartItem-price { text-align: bottom; height: 80px;}
+		.cartItem-price > button { float: right; width: 80px; padding: 0px; border: none; background: white; }
+
+		/* Sidebar */
+		.category-list { margin-top: 10px; padding-left: 27px; }
+		.home-reviews-wrapper { padding: 15px; margin-bottom: 20px; }
+		.home-reviews { width: 100%; height: fit-content; flex-flow: column; border: 1px solid lightgrey; padding: 8px; margin-bottom: 15px;}
+		.home-reviews .tanggal { color: grey; font-size: 0.8em; }
+		.home-reviews .judul { color: #7cb71b; font-size: 1.2em; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; padding: 3px 0px; max-width: 100%; font-weight: bold;}
+		.home-reviews .user { flex-flow: row; display: flex;}
+		.home-reviews .nama { padding-left: 10px; font-weight: bold; }
+		.home-reviews .profpic { width: 32px; height: 32px; background-color: black; }
+		.home-reviews .review { word-wrap: break-word; text-overflow: ellipsis; overflow: hidden; padding: 6px; max-height: 120px;}
+		.home-reviews .bottomsection { height: 20px; }
+
+		.item { padding: 10px; }
+		.page { padding-right: 35px; }
+		.displayBuku { display: flex; width: 600px; border: 1px solid #ededed; margin: auto; padding: 20px }
+		.displayBuku img { display: inline-block; margin: auto; height: 260px; }
+		.book-detail {display: inline-block; }
+		.book-name { font-weight: bold; font-size: 1.1em; color: #7cb71b; text-overflow: ellipsis; overflow: hidden; max-width: 378px; max-height: 42px; }
+		.book-author { font-size: 0.9em; color: grey; }
+		.book-desc { text-overflow: ellipsis; overflow: hidden; max-height: 156px; height: 156px; }
+		.book-owner { font-size: 0.9em; padding-top: 5px;}
+		.book-owner > span { color: blue; }
+		.book-price { display: flex; border: 1px solid lightgrey; min-height: 43px; padding: 5px; padding-top: 0px; font-size: 0.8em; text-align: center;}
+		.book-price.giveaway .harga { text-align: center;}
+		.book-price > .harga { font-size: 1.1em; flex: 3; padding-top: 11px; font-weight: bold }
+		.book-price > button { flex: 2; background-color: #7cb71b; font-weight: bold; font-size: 1.1em; color: white;}
+		.displayBuku .book-detail { padding-left: 12px; }
+		.displayBuku button { padding: 0px; margin-top: 5px; font-size: 1.2em; }
+		.displayBuku.small { width: 90%; flex-flow: column }
+		.displayBuku.small .top { display: flex; }
+		.displayBuku.small img { height: 210px; }
+		.displayBuku.small .book-desc { height: 190px; max-height: 220px; }
+		.displayBuku.small .book-name { max-width: 126px; }
+		.displayBuku.small2 { border: 1px solid lightgrey; flex-flow: column; width: 250px; height: 350px;}
+		.displayBuku.small2 img { height: 195px; padding-bottom: 10px;}
+		.displayBuku.small2 button { height: 30px; margin-top: 6px; font-size: 1.2em; max-width: 74px; padding-top: 4px; }
+
+		.trade-display { border: 1px solid lightgrey; padding: 5px; width: 80%; margin: auto; }
+		.trade-display .judul { font-weight: bold; font-size: 1.1em; }
+		.trade-display .requester { font-size: 0.9em; }
+		.trade-display .requester span { color: blue; }
+		.trade-display .request, .trade-display .offer, .trade-display .judul { color: #7cb71b; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; max-width: 100%; }
+		.trade-display .request span, .trade-display .offer span { color: #333; }
+
+		.quote-display { border: 1px solid lightgrey; border-radius: 2px; padding: 5px 10px; width: 80%; margin: auto; }
+		.quote-display .quote { font-size: 1.5em; font-family: "Merriweather", "Georgia", serif; }
+		.quote-display .source { font-weight: bold; }
+		.quote-display .poster { text-align: right;}
+
+		.grid-item { display: inline-block; }
+		.grid-item li { list-style-type: none; display: inline; float: left; padding-right: 5px; padding-bottom: 5px;}
+		.home-newbook { display: flex; flex-flow: column; width: 100%; }
+		.home-newbook button { float: right; margin-right: 40px; }
+
+		/* RegisterLogin Page */
+		.loginregisterContainer { width: 550px; display: block; margin: auto; padding: 25px 52px 12px; margin-bottom: 100px; border: 1px solid lightgrey; border-radius: 15px;}
+		.loginregisterContainer p { font-size: 1.5em; text-align: center; font-weight: bold; }
+		.loginregister-form { margin-top: 30px; }
+		.loginregister-form ul { list-style-type: none; padding: 0;}
+		.loginregister-form li { line-height: 22px; position: relative; margin-top: 5px }
+		.loginregister-form input { width: 100%; padding: 7px 12px; font-size: 13px; line-height: 20px; vertical-align: middle; margin-bottom: 15px;}
+		.loginregister-btn { margin: 10px auto; width: 50%; display: block; padding: 10px;}
+
+		/* Buku Page */
+		.pageBukuHeader span { font-size: 2em; padding-left: 7px; padding-bottom: 5px; }
+		.pageBukuHeader { border-bottom: 2px solid #7cb71b; }
+		.fotoBuku { padding: 20px 25px; }
+		.detailBuku { padding-top: 20px; }
+		.detailBuku span { font-size: 1.2em; font-weight: bold; }
+		.detailBuku table { margin-top: 12px; width: 100%;}
+		.detailBuku tr { padding: 3px; }
+		.pageBuku .pinjam .btn { margin: auto; width: 180px; display: block; }
+		.pageBuku .fotoBuku img { height: 283px;}
+		.pageBuku .sinopsis-header { padding-top: 20px; font-size: 1.2em; font-weight: bold;}
+		.pageBuku .sinopsis-body { margin-top: 10px; }
+
+		/* Catalog Page */
+		.pilihGenre { width: 200px; padding-top: 5px; padding-left: 30px; float: left;  }
+		.bukuSearch { display: inline-block; float: right; max-width: 400px; padding-right: 64px;}
+		.booksWrapper { padding-top: 10px; width: 100%; }
+		.booksWrapper li { padding-right: 34px; padding-bottom: 25px; }
+		.pagination-wrapper { padding: 10px; }
+		.pagination-wrapper .pagination { display: block; margin: auto; margin-top: 20px; width: 200px; height: 40px; }
+
+
+		/* Quote Page */
+		.quoteSearch { padding: 10px; max-width: 500px; float: right; padding-right: 72px; }
+		.displayQuote { padding: 15px; border: 1px solid lightgrey; flex-flow: column; border-radius: 2px; margin: 5px; }
+		.displayQuote .quote { margin-bottom: 10px; font-size: 1.2em; font-family: "Merriweather", "Georgia", serif;}
+		.displayQuote .quote .text { max-width: 280px; display: inline-block; word-wrap: break-word; vertical-align: top;}
+
+		/* FAQ Page */
+		.faqWrapper { padding-top: 30px; height: -webkit-fill-available }
+		.faqPanel { border: unset; box-shadow: unset; margin-top: 20px; }
+		.faqPanel button { width: 100%; border: unset; display: flex;}
+		.faqPanel button:focus { border: unset; outline: none; }
+		.faqPanel .panel-body, .faqPanel .panel-heading { background-color: #ededed; }
+		.faqPanel .panel-heading { padding: 0px; }
+		.faqPanel .left { height: 80px; width: 95px; background-color: #23261e; }
+		.faqPanel .left span { font-size: 2em; margin-top: 23px; color: white; }
+		.faqPanel .right { height: 80px; flex: 1; }
+		.faqPanel .question { font-size: 1.6em; font-weight: bold; padding-left: 15px; display: table-cell; vertical-align: middle; height: inherit; }
+		.faqPanel .answer {  }
+		.faqPanel .panel-collapse { margin-top: -2px; }
+		.faqPanel .panel-body { padding: 0px; display: flex; }
+		.faqPanel .panel-body .right { padding: 2px 30px 25px 16px; height: auto; }
+		.faqPanel .panel-body .left { height: auto; }
+
+		/* Profile Page */
+		.profile-sidebar { float: left; display: block; min-height: 500px; max-width: 200px; margin-top: 10px; padding: 0; border-radius: 3px; border: 1px solid #e0e0e0; }
+		.profile-mainpage { float: left; display: block; border: 0; padding: 0; margin: 10px 0px 40px 20px; }
+		.profile-sidebar ul { list-style-type: none; padding: 0; } 
+		.profile-sidebar li { padding: 7px 10px; }
+		.profile-sidebar li:hover { background-color: lightgrey; cursor: pointer; }
+		.profile-sidebar li.active { background-color: lightgrey; }
+		.tambah-buku, .tambah-quote { padding: 30px 40px; margin-top: 10px; border-radius: 5px; border: 1px solid #e0e0e0;}
+		.control-label { text-align: left!important; font-weight: bold; }
+		.form-control { margin-right: 20px; }
+		.profile-content .grid-item { margin-top: 30px; }
+
+		/* Checkout Page */
+		.order-detail-table { line-height: 20px; width: 100%; position: relative; word-break: break-all; border-spacing: 0; border: 1px solid #ddd; margin: 10px 0 15px; border-collapse: separate; border-left: 0; border-radius: 2px;}
+		.order-detail-table td, .order-detail-table th { border-left: 1px solid #ddd; padding: 7px; }
+		.order-detail-table td { vertical-align: top; border-top: 1px solid #ddd;}
+		.order-detail-table th { border-top: 3px solid #ddd; border-bottom: 1px solid #ddd; padding: 10px; font-weight: bold; }
+		.order-detail-table .cart-item span { float: left; }
+		.order-detail-table .item-operation { display: block; margin: 15px auto; width: 85px;}
+		.order-detail-table .item-name { font-size: 1.2em; font-weight: bold; }
+		.order-detail-table .receiver-address { font-size: 0.9em; }
+		.total-payment-container { border: 2px solid #ddd; border-radius: 3px; padding: 10px; }
+		.container-total { width: fit-content; display: block; margin: auto; margin-right: 10px; text-align: center; padding-bottom: 6px; }
+		.bottom-buttons { border-top: 1px solid #ddd; padding-top: 13px; }
+
+		.click:hover { cursor: pointer; text-decoration: underline; }
+		.footer { background-color: #23261e; height: 150px; margin-top: 100px; }
