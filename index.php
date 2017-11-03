@@ -1,3 +1,10 @@
+<?php
+	session_start();
+	include("config.php");
+
+	$queryBukuTerbaru = mysqli_query($db,"SELECT b.idbuku, b.judul, b.penulis, b.hargasewa, b.filegambar, b.deskripsi, p.username, p.kota FROM buku as b, pengguna as p WHERE b.username = p.username");
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -76,12 +83,12 @@
 			</div>
 			<div class="collapse navbar-collapse" id="mainNavbar">
 				<ul class="nav navbar-nav">
-			    	<li class="active"><a href="/ruangbaca">Home</a></li>
-			    	<li><a href="/ruangbaca/p/catalog">Catalog</a></li>
-			    	<li><a href="/ruangbaca/p/quotes">Quotes</a></li>
+			    	<li class="active"><a href="<?php echo ROOT_URL;?>">Home</a></li>
+			    	<li><a href="<?php echo ROOT_URL . '/p/catalog';?>">Catalog</a></li>
+			    	<li><a href="<?php echo ROOT_URL . '/p/quotes';?>">Quotes</a></li>
 			    	<li><a href="#">Reading Journal</a></li>
 			    	<li><a href="#">RuBa Community</a></li>
-			    	<li><a href="/ruangbaca/p/faq">FAQ</a></li>
+			    	<li><a href="<?php echo ROOT_URL . '/p/faq';?>">FAQ</a></li>
 				</ul>
 				<form class="navbar-form navbar-right">
 				    <div class="input-group">
@@ -359,61 +366,26 @@
 					<div class="home-newbook">
 						<div class="top grid-item">
 							<ul>
+								<?php
+									while($data = mysqli_fetch_array($queryBukuTerbaru)){
+										$urlGambar = ROOT_DIR . "/images/" . $data['filegambar'];
+										if(file_exists($urlGambar)){
+											$gambarBuku = $data['filegambar'];
+										} else {
+											$gambarBuku = "default_cover.JPG";
+										} ?>
 								<li>
 									<div class="displayBuku small2">
-										<img src="images/buku-8.JPG" align="center">
+										<img src="images/<?php echo $gambarBuku;?>" align="center">
 										<div class="book-detail">
-											<div class="book-name">Finding Magic</div>
-											<div class="book-author">by Sally Quinn</div>
-											<div class="book-owner">Pemilik buku: <span>Tyas Yuni</span> - <span>Jakarta</span></div>
-											<div class="book-price"><span class="harga">Rp 25.000 / minggu</span></div>
+											<div class="book-name"><?php echo $data['judul'];?></div>
+											<div class="book-author">by <?php echo $data['penulis'];?></div>
+											<div class="book-owner">Pemilik buku: <span><?php echo $data['username'];?></span> - <span><?php echo $data['kota'];?></span></div>
+											<div class="book-price"><span class="harga">Rp <?php echo $data['hargasewa'];?> / minggu</span></div>
 										</div>
 									</div>
 								</li>
-								<li>
-									<div class="displayBuku small2">
-										<img src="images/buku-9.JPG" align="center">
-										<div class="book-detail">
-											<div class="book-name">The Diary of a Young Girl</div>
-											<div class="book-author">by Anne Frank</div>
-											<div class="book-owner">Pemilik buku: <span>Tyas Yuni</span> - <span>Jakarta</span></div>
-											<div class="book-price"><span class="harga">Rp 15.000 / minggu</span></div>
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="displayBuku small2">
-										<img src="images/buku-10.JPG" align="center">
-										<div class="book-detail">
-											<div class="book-name">The Designer</div>
-											<div class="book-author">by Marius Gabriel</div>
-											<div class="book-owner">Pemilik buku: <span>Tyas Yuni</span> - <span>Jakarta</span></div>
-											<div class="book-price"><span class="harga">Rp 25.000 / minggu</span></div>
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="displayBuku small2">
-										<img src="images/buku-11.JPG" align="center">
-										<div class="book-detail">
-											<div class="book-name">The Tiger's Daughter</div>
-											<div class="book-author">by K. Arsenault Rivera</div>
-											<div class="book-owner">Pemilik buku: <span>Tyas Yuni</span> - <span>Jakarta</span></div>
-											<div class="book-price"><span class="harga">Rp 25.000 / minggu</span></div>
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="displayBuku small2">
-										<img src="images/buku-12.JPG" align="center">
-										<div class="book-detail">
-											<div class="book-name">The Adventures of Captain Underpants</div>
-											<div class="book-author">by Dav Pilkey</div>
-											<div class="book-owner">Pemilik buku: <span>Tyas Yuni</span> - <span>Jakarta</span></div>
-											<div class="book-price"><span class="harga">Rp 25.000 / minggu</span></div>
-										</div>
-									</div>
-								</li>
+								<?php } ?>
 							</ul>
 						</div>
 						<div class="bot">

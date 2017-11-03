@@ -1,3 +1,8 @@
+<?php
+	session_start();
+	include("../../config.php");
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -77,12 +82,12 @@
 			</div>
 			<div class="collapse navbar-collapse" id="mainNavbar">
 				<ul class="nav navbar-nav">
-			    	<li><a href="/ruangbaca">Home</a></li>
-			    	<li class="active"><a href="/ruangbaca/p/catalog">Catalog</a></li>
-			    	<li><a href="/ruangbaca/p/quotes">Quotes</a></li>
+			    	<li><a href="<?php echo ROOT_URL;?>">Home</a></li>
+			    	<li class="active"><a href="<?php echo ROOT_URL . '/p/catalog';?>">Catalog</a></li>
+			    	<li><a href="<?php echo ROOT_URL . '/p/quotes';?>">Quotes</a></li>
 			    	<li><a href="#">Reading Journal</a></li>
 			    	<li><a href="#">RuBa Community</a></li>
-			    	<li><a href="/ruangbaca/p/faq">FAQ</a></li>
+			    	<li><a href="<?php echo ROOT_URL . '/p/faq';?>">FAQ</a></li>
 				</ul>
 				<form class="navbar-form navbar-right">
 				    <div class="input-group">

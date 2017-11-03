@@ -1,13 +1,10 @@
 <?php
-	$config = array(
-		"db" => array(),
-		"urls" => array(),
-		"paths" => array(
-			"images" => $_SERVER["DOCUMENT_ROOT"] . "/images"
-		)
-	);
+	$dbHost = 'localhost';
+	$dbUsername = 'root';
+	$dbPassword = '';
+	$dbName = 'ruangbaca';
+	$db = mysqli_connect($dbHost, $dbUsername, $dbPassword, $dbName);
 
-	defined("TEMPLATES_PATH")
-		or define("TEMPLATES_PATH", realpath(dirname(__FILE__) . '/templates'));
-
+	define('ROOT_DIR', dirname(__FILE__));
+	define('ROOT_URL', substr($_SERVER['PHP_SELF'], 0, - (strlen($_SERVER['SCRIPT_FILENAME']) - strlen(ROOT_DIR))));
 ?>
