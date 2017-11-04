@@ -22,60 +22,25 @@
     <script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
 	<script type="text/javascript" src="js/jquery-ui.js"></script>
+	<script type="text/javascript">
+		function logout(){
+			$.ajax({
+		        dataType: 'html',
+		        url:'ajax/logoutRequest.php',
+		        method:'post',
+		        data : {},
+		        success:function(response){
+		        	location.reload();
+		        }
+		    });
+		}
+	</script>
 </head>
 <body>
 <div class="backgroundHeader">
 </div>
 <div class="body">
-	<div class="header">
-		<div class="topcolor" style="height: 10px; background-color: #7cb71b"></div>
-		<div class="headerTop">
-			<div class="logo">
-				<img src="images/logo3.PNG" width="200">
-			</div>
-			<div class="cart container">
-				<div class="dropdown">
-					<button class="cartBtn dropdown-toggle" type="button" data-toggle="dropdown">
-						<span class="cart-icon"><i class="glyphicon glyphicon-shopping-cart"></i> Cart</span>
-						<div class="cart-info"><span>2</span> Item(s) | Rp <span>40.000</span></div>
-					</button>
-					<ul class="dropdown-menu cart-dropdown">
-						<li class="cartItem">
-							<img src="images/buku-4.JPG">
-							<div class="cartItem-info">
-								<div class="cartItem-name">Elite: Reclamation</div>
-								<div class="cartItem-author">by Drew Wagar</div>
-								<div class="cartItem-price">Rp <span>20.000</span><button><span class="glyphicon glyphicon-remove"></span> Hapus</button></div>
-							</div>
-						</li>
-						<li class="cartItem">
-							<img src="images/buku-5.JPG">
-							<div class="cartItem-info">
-								<div class="cartItem-name">Red Hope (A Novel)</div>
-								<div class="cartItem-author">by John Dreese</div>
-								<div class="cartItem-price">Rp <span>20.000</span><button><span class="glyphicon glyphicon-remove"></span> Hapus</button></div>
-							</div>
-						</li>
-						<li class="divider"></li>
-						<li>
-							<button class="btn clear-cart"><span class="glyphicon glyphicon-remove"></span> Kosongkan</button>
-							<button class="btn checkout" style="float: right;"><span class="glyphicon glyphicon-share"></span> Check Out</button>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<!-- <button class="btn register">Register</button>
-			<button class="btn login">Login</button> -->
-			<button class="btn userProfile">
-				<table>
-					<tr>
-						<td class="profpic"></td>
-						<td class="nama" style="padding-left: 10px">NamaUser</td>
-					</tr>
-				</table>
-			</button>
-		</div>
-	</div>
+	<?php include_once(ROOT_DIR . "/header.php"); ?>
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -213,37 +178,11 @@
 								<div class="book-name"><?php echo $dataPopuler['judul'];?></div>
 								<div class="book-author">by <?php echo $dataPopuler['penulis'];?></div>
 								<div class="book-desc"><?php echo $dataPopuler['deskripsi'];?></div>
-								<div class="book-owner">Pemilik buku: <span><?php echo $dataPopuler['namapengguna'];?></span> | Kota: <span><?php echo $dataBuku['kota'];?></span></div>
+								<div class="book-owner">Pemilik buku: <span><?php echo $dataPopuler['namapengguna'];?></span> | Kota: <span><?php echo $dataPopuler['kota'];?></span></div>
 								<div class="book-price"><span class="harga">Rp <?php echo $dataPopuler['hargasewa'];?> / minggu</span><button type="button" class="btn add-to-cart">Lihat</button></div>
 							</div>
 						</div>
 					</div>
-					<!--
-					<div class="item">
-						<div class="displayBuku">
-							<img src="images/buku-2.JPG" align="center">
-							<div class="book-detail">
-								<div class="book-name">FAHRENHEIT 451</div>
-								<div class="book-author">by Ray Bradbury</div>
-								<div class="book-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi faucibus vehicula diam, et venenatis nisi aliquet ut. Ut vestibulum sapien vitae blandit ullamcorper. Curabitur eu condimentum turpis. Donec ultrices sit amet dolor eu posuere. In pulvinar, dui in vestibulum tincidunt, arcu nisi suscipit purus, nec luctus nisl mauris et orci. Nulla porttitor justo id lorem vulputate, at molestie turpis vestibulum. Fusce ex ipsum, aliquet in ex id, facilisis placerat purus. Aenean mattis nisl tincidunt enim sollicitudin aliquam nec non urna. Aenean lorem ex, pretium vel venenatis vel, iaculis volutpat tellus. Vestibulum maximus lorem libero, eget egestas ligula elementum a.</div>
-								<div class="book-owner">Pemilik buku: <span>Tyas Yuni</span> | Kota: <span>Jakarta</span></div>
-								<div class="book-price"><span class="harga">Rp 20.000 / minggu</span><button type="button" class="btn add-to-cart">Lihat</button></div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="displayBuku">
-							<img src="images/buku-3.JPG" align="center">
-							<div class="book-detail">
-								<div class="book-name">A Man Called Ove</div>
-								<div class="book-author">by Fredrik Backman</div>
-								<div class="book-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi faucibus vehicula diam, et venenatis nisi aliquet ut. Ut vestibulum sapien vitae blandit ullamcorper. Curabitur eu condimentum turpis. Donec ultrices sit amet dolor eu posuere. In pulvinar, dui in vestibulum tincidunt, arcu nisi suscipit purus, nec luctus nisl mauris et orci. Nulla porttitor justo id lorem vulputate, at molestie turpis vestibulum. Fusce ex ipsum, aliquet in ex id, facilisis placerat purus. Aenean mattis nisl tincidunt enim sollicitudin aliquam nec non urna. Aenean lorem ex, pretium vel venenatis vel, iaculis volutpat tellus. Vestibulum maximus lorem libero, eget egestas ligula elementum a.</div>
-								<div class="book-owner">Pemilik buku: <span>Vareza Noorliko</span> | Kota: <span>Meikarta</span></div>
-								<div class="book-price"><span class="harga">Rp 20.000 / minggu</span><button type="button" class="btn add-to-cart">Lihat</button></div>
-							</div>
-						</div>
-					</div>
-					-->
 					<?php 
 						$counter++;
 					}?>
@@ -294,24 +233,6 @@
 									</div>
 								</div>
 							</div>
-							<!---
-							<div class="item">
-								<div class="displayBuku small">
-									<div class="top">
-										<img src="images/buku-7.JPG" align="center">
-										<div class="book-detail">
-											<div class="book-name">Minecraft: The Island</div>
-											<div class="book-author">by Max Brooks</div>
-											<div class="book-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi faucibus vehicula diam, et venenatis nisi aliquet ut. Ut vestibulum sapien vitae blandit ullamcorper. Curabitur eu condimentum turpis.</div>
-										</div>
-									</div>
-									<div class="bot">
-										<div class="book-owner">Pemilik buku: <span>Vareza Noorliko</span> | Kota: <span>Meikarta</span></div>
-										<div class="book-price giveaway"><span class="harga">---</span><button type="button" class="btn add-to-cart">Ambil</button></div>
-									</div>
-								</div>
-							</div>
-							--->
 							<?php $counter++;
 							} ?>
 						</div>
@@ -346,16 +267,6 @@
 									<div class="offer">Offer: <span><?php echo $dataTrade['offer'];?></span></div>
 								</div>
 							</div>
-							<!--
-							<div class="item">
-								<div class="trade-display">
-									<div class="judul">WTB buku langka</div>
-									<div class="requester">dari: <span>Tyas Yuni</span> | Kota: <span>Jakarta</span></div>
-									<div class="request">Request: <span>buku langka</span></div>
-									<div class="offer">Offer: <span>duit 10rb haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span></div>
-								</div>
-							</div>
-							-->
 							<?php $counter++;
 							} ?>
 						</div>
@@ -386,17 +297,7 @@
 									<div class="quote"><i class="fa fa-quote-left" aria-hidden="true"></i> <span><?php echo $dataQuotes['isiquotes'];?></span></div>
 									<div class="source"><i class="glyphicon glyphicon-minus"></i> <span><?php echo $dataQuotes['sumber'];?></span></div>
 									<div class="poster"><?php echo $dataQuotes['namapengguna'];?></div>
-									
 								</div>
-								<!---
-							<div class="item">
-								<div class="quote-display">
-									<div class="quote"><i class="fa fa-quote-left" aria-hidden="true"></i> <span>So many books, so little time.</span></div>
-									<div class="source"><i class="glyphicon glyphicon-minus"></i> <span>Frank Zappa</span></div>
-									<div class="poster">Tyas</div>
-								</div>
-							</div>
-							-->
 							</div>
 							<?php $counter++;
 							} ?>
@@ -434,7 +335,7 @@
 										<div class="book-detail">
 											<div class="book-name"><?php echo $dataBuku['judul'];?></div>
 											<div class="book-author">by <?php echo $dataBuku['penulis'];?></div>
-											<div class="book-owner">Pemilik buku: <span><?php echo $dataBuku['namapengguna'];?></span> - <span><?php echo $data['kota'];?></span></div>
+											<div class="book-owner">Pemilik buku: <span><?php echo $dataBuku['namapengguna'];?></span> - <span><?php echo $dataBuku['kota'];?></span></div>
 											<div class="book-price"><span class="harga">Rp <?php echo $dataBuku['hargasewa'];?> / minggu</span></div>
 										</div>
 									</div>

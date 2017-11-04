@@ -109,7 +109,7 @@
 		.displayBuku { display: flex; width: 600px; border: 1px solid #ededed; margin: auto; padding: 20px }
 		.displayBuku img { display: inline-block; margin: auto; height: 260px; }
 		.book-detail {display: inline-block; }
-		.book-name { font-weight: bold; font-size: 1.1em; color: #7cb71b; text-overflow: ellipsis; overflow: hidden; max-width: 378px; max-height: 42px; }
+		.book-name { font-weight: bold; font-size: 1.1em; color: #7cb71b; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; max-width: 378px; max-height: 42px; }
 		.book-author { font-size: 0.9em; color: grey; }
 		.book-desc { text-overflow: ellipsis; overflow: hidden; max-height: 156px; height: 156px; }
 		.book-owner { font-size: 0.9em; padding-top: 5px;}
@@ -128,6 +128,7 @@
 		.displayBuku.small2 { border: 1px solid lightgrey; flex-flow: column; width: 250px; height: 350px;}
 		.displayBuku.small2 img { height: 195px; padding-bottom: 10px;}
 		.displayBuku.small2 button { height: 30px; margin-top: 6px; font-size: 1.2em; max-width: 74px; padding-top: 4px; }
+		.displayBuku.small2 .book-detail { padding-left: 0px; }
 
 		.trade-display { border: 1px solid lightgrey; padding: 5px; width: 80%; margin: auto; }
 		.trade-display .judul { font-weight: bold; font-size: 1.1em; }
