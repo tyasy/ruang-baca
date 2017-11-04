@@ -71,8 +71,9 @@
 		/* HeaderTop */
 		.headerTop { display: block; height: 60px; background-color: #23261e }
 		.logo { padding-left: 70px; display: inline-block; width: 268px; }
-		.login, .register, .cart, .userProfile { float: right; }
+		.login, .register, .logout, .cart, .userProfile { float: right; }
 		.login, .register, .userProfile { margin-top: 11px; font-size: 1.1em;}
+		.logout { margin-top: 12px; margin-right: 8px; color: #7cb71b; background-color: unset; }
 		.register { margin-left: 5px; color: #7cb71b; background-color: unset;}
 		.userProfile { margin-top: 7px; }
 		.userProfile .profpic { width: 32px; height: 32px; background-color: white; border-radius: 3px; }

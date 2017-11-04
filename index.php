@@ -18,6 +18,19 @@
     <script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
 	<script type="text/javascript" src="js/jquery-ui.js"></script>
+	<script type="text/javascript">
+		function logout(){
+			$.ajax({
+		        dataType: 'html',
+		        url:'ajax/logoutRequest.php',
+		        method:'post',
+		        data : {},
+		        success:function(response){
+		        	location.reload();
+		        }
+		    });
+		}
+	</script>
 </head>
 <body>
 <div class="backgroundHeader">

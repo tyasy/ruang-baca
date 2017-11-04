@@ -1,4 +1,5 @@
 	<div class="header">
+		<label id="ROOT-URL" style="display: none"><?php echo ROOT_URL; ?></label>
 		<div class="topcolor" style="height: 10px; background-color: #7cb71b"></div>
 		<div class="headerTop">
 			<div class="logo">
@@ -40,10 +41,11 @@
 					<table>
 						<tr>
 							<td class="profpic"></td>
-							<td class="nama" style="padding-left: 10px">NamaUser</td>
+							<td class="nama" style="padding-left: 10px"><?php echo $_SESSION['username']; ?></td>
 						</tr>
 					</table>
 				</button>
+				<a class="btn logout" onclick="logout()">Log Out</a>
 			<?php }else{?>
 				<a class="btn register" href="<?php echo ROOT_URL . '/p/register';?>">Register</a>
 				<a class="btn login" href="<?php echo ROOT_URL . '/p/login';?>">Login</a>
