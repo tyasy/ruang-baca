@@ -63,6 +63,8 @@
 		a:hover { color: #638925; }
 		.float-right { float: right; }
 		.block { display: block; }
+		.outlineRed { outline-style: auto; outline-color: red; }
+		.clearOutline { outline-style: none; }
 
 		.carousel-small .carousel-control.left, #carousel2 .carousel-control.left:hover { background: unset; width: 5%;}
 		.carousel-small .carousel-control.right, #carousel2 .carousel-control.right:hover { background: unset; width: 5%;}
