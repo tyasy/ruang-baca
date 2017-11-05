@@ -175,7 +175,7 @@
 						<div class="displayBuku">
 							<img src="images/<?php echo $gambarBuku ?>" align="center">
 							<div class="book-detail">
-								<div class="book-name"><?php echo $dataPopuler['judul'];?></div>
+								<div class="book-name"><a href="<?php echo "p/book/index.php?id=".$dataPopuler['idbuku'] ?>"><?php echo $dataPopuler['judul'];?></div>
 								<div class="book-author">by <?php echo $dataPopuler['penulis'];?></div>
 								<div class="book-desc"><?php echo $dataPopuler['deskripsi'];?></div>
 								<div class="book-owner">Pemilik buku: <span><?php echo $dataPopuler['namapengguna'];?></span> | Kota: <span><?php echo $dataPopuler['kota'];?></span></div>
@@ -222,7 +222,7 @@
 									<div class="top">
 										<img src="images/<?php echo $gambarBukuG;?>" align="center">
 										<div class="book-detail">
-											<div class="book-name"><?php echo $dataGiveaway['judulbuku'];?></div>
+											<div class="book-name"><a href="<?php echo "p/book/index.php?id=".$dataGiveaway['idbuku'] ?>"><?php echo $dataGiveaway['judulbuku'];?></div>
 											<div class="book-author">by <?php echo $dataGiveaway['penulisbuku'];?></div>
 											<div class="book-desc"><?php echo $dataGiveaway['isigiveaway'];?></div>
 										</div>
@@ -333,7 +333,7 @@
 									<div class="displayBuku small2">
 										<img src="images/<?php echo $gambarBuku;?>" align="center">
 										<div class="book-detail">
-											<div class="book-name"><?php echo $dataBuku['judul'];?></div>
+											<div class="book-name"><a href="<?php echo "p/book/index.php?id=".$dataBuku['idbuku'] ?>"><?php echo $dataBuku['judul'];?></div>
 											<div class="book-author">by <?php echo $dataBuku['penulis'];?></div>
 											<div class="book-owner">Pemilik buku: <span><?php echo $dataBuku['namapengguna'];?></span> - <span><?php echo $dataBuku['kota'];?></span></div>
 											<div class="book-price"><span class="harga">Rp <?php echo $dataBuku['hargasewa'];?> / minggu</span></div>
