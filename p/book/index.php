@@ -1,3 +1,9 @@
+<?php
+session_start();
+include("../../config.php");
+
+$queryBukuTerbaru = mysqli_query($db,"SELECT b.idbuku, b.judul, b.penulis, b.hargasewa, b.filegambar, b.bahasa,b.deskripsi, p.namapengguna, p.kota FROM buku as b, pengguna as p WHERE b.username = p.username");
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,70 +52,81 @@
 			</div>
 		</div>
 	</nav>
-	<div class="mainpage" style="max-width: 1000px; margin: auto; margin-bottom: 60px; height: -webkit-fill-available">
-		<div class="row pageBukuHeader">
-			<div class="col-md-12">
-				<span class="judul">The Diary of a Young Girl</span>
-			</div>
-		</div>
-		<div class="row pageBuku" style="">
-			<div class="col-md-6 left" style="">
-				<div class="row">
-					<div class="col-md-5 fotoBuku">
-						<img src="../../images/buku-9.JPG" align="center">
-					</div>
-					<div class="col-md-7 detailBuku">
-						<span>Detail Buku</span>
-						<table>
-							<tr>
-								<td style="font-weight: bold;">Penulis</td>
-								<td>Anne Frank</td>
-							</tr>
-							<tr>
-								<td style="font-weight: bold;">Kategori</td>
-								<td>Sejarah</td>
-							</tr>
-							<tr>
-								<td style="font-weight: bold;">Bahasa</td>
-								<td>Inggris</td>
-							</tr>
-							<tr>
-								<td style="font-weight: bold;">Pemilik</td>
-								<td>Tyas Yuni</td>
-							</tr>
-							<tr>
-								<td style="font-weight: bold;">Harga</td>
-								<td>Rp 25000 / minggu</td>
-							</tr>
-						</table>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12 pinjam">
-						<button class="btn">Tambah Ke Keranjang</button>
-					</div>
-				</div>
-				
-			</div>
-			<div class="col-md-6 right" style="">
-				<div class="row">
-					<div class="col-md-12 sinopsis-header">
-						<span class="header">Deskripsi</span>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12 sinopsis-body">
-						<span class="body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum malesuada urna ut diam vestibulum, ac vehicula sem blandit. Fusce laoreet felis a luctus rutrum. Praesent non purus arcu. Aenean semper, purus vitae lacinia ultricies, dolor sem rutrum elit, sit amet porttitor ante urna eget odio. Sed quis pellentesque metus, sit amet consequat magna. Ut aliquam eu arcu eu mollis. Donec laoreet sem odio. Fusce iaculis enim in sem pretium, nec aliquet nibh posuere. Fusce id lacinia orci. Mauris non dignissim tortor, quis porttitor lorem. Nunc vel turpis nec urna lobortis dictum. Ut lobortis nulla a sapien ullamcorper vulputate. Sed maximus efficitur nibh sit amet euismod. Phasellus dapibus lacus eleifend purus porta ultrices. Fusce orci augue, scelerisque quis turpis et, fermentum fringilla quam. Maecenas blandit rhoncus ipsum ut semper.</span>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12 starReview">
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+
+	<?php
+    while($data = mysqli_fetch_array($queryBukuTerbaru)) {
+        $urlGambar = ROOT_DIR . "/images/" . $data['filegambar'];
+        if (file_exists($urlGambar)) {
+            $gambarBuku = $data['filegambar'];
+        } else {
+            $gambarBuku = "default_cover.JPG";
+        } ?>
+        <div class="mainpage"
+             style="max-width: 1000px; margin: auto; margin-bottom: 60px; height: -webkit-fill-available">
+            <div class="row pageBukuHeader">
+                <div class="col-md-12">
+                    <span class="judul"><?php echo $data['judul'] ?></span>
+                </div>
+            </div>
+            <div class="row pageBuku" style="">
+                <div class="col-md-6 left" style="">
+                    <div class="row">
+                        <div class="col-md-5 fotoBuku">
+                            <img src="../../images/<?php echo $data['filegambar'] ?>" align="center">
+                        </div>
+                        <div class="col-md-7 detailBuku">
+                            <span>Detail Buku</span>
+                            <table>
+                                <tr>
+                                    <td style="font-weight: bold;">Penulis</td>
+                                    <td> <?php echo $data['penulis'] ?></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;">Bahasa</td>
+                                    <td> <?php echo $data['bahasa'] ?></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;">Pemilik</td>
+                                    <td> <?php echo $data['namapengguna'] ?></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;">Harga</td>
+                                    <td> <?php echo $data['hargasewa'] ?> / Minggu</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 pinjam">
+                            <button class="btn">Tambah Ke Keranjang</button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-6 right" style="">
+                    <div class="row">
+                        <div class="col-md-12 sinopsis-header">
+                            <span class="header">Deskripsi</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 sinopsis-body">
+                            <span class="body"><p align="justify"> <?php echo $data['deskripsi'] ?>.</p></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 starReview">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php
+    }
+    ?>
 </div>
+<br><br><br>
+
 <div class="footer">
 </div>
 </body>
