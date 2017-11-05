@@ -2,7 +2,7 @@
 session_start();
 include("../../config.php");
 
-$queryBukuTerbaru = mysqli_query($db,"SELECT b.idbuku, b.judul, b.penulis, b.hargasewa, b.filegambar, b.bahasa,b.deskripsi, p.namapengguna, p.kota FROM buku as b, pengguna as p WHERE b.username = p.username");
+$queryBukuTerbaru = mysqli_query($db,"SELECT b.idbuku, b.judul, b.penulis, b.hargasewa, b.filegambar, b.bahasa,b.deskripsi, p.namapengguna, p.kota FROM buku as b, pengguna as p WHERE b.username = p.username AND b.idbuku = '".$_GET['id']."'");
 ?>
 <!DOCTYPE html>
 <html>
