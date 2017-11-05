@@ -2,6 +2,7 @@
 	session_start();
 	include("../../config.php");
 
+	$queryQuotes = mysqli_query($db,"SELECT q.idquotes, q.isiquotes, q.sumber, p.namapengguna FROM quotes as q, pengguna as p WHERE q.username = p.username");
 ?>
 <!DOCTYPE html>
 <html>
@@ -66,56 +67,19 @@
 			</div>
 			<div class="quotesWrapper grid-item">
 				<ul>
+					<?php
+						while($dataQuotes = mysqli_fetch_array($queryQuotes)){?>
 					<li>
 						<div class="displayQuote">
 							<div class="quote">
-								<i class="fa fa-quote-left" aria-hidden="true"></i> <span class="text">"Hidup tanpa cinta bagai taman tak berbunga"</span>
+								<i class="fa fa-quote-left" aria-hidden="true"></i> <span class="text"><?php echo $dataQuotes['isiquotes'];?></span>
 							</div>
 							<div class="sumber">
-								<i class="glyphicon glyphicon-minus"></i> <span>Rhoma Irama</span>
+								<i class="glyphicon glyphicon-minus"></i> <span><?php echo $dataQuotes['sumber'];?></span>
 							</div>
 						</div>
 					</li>
-					<li>
-						<div class="displayQuote">
-							<div class="quote">
-								<i class="fa fa-quote-left" aria-hidden="true"></i> <span class="text">Be yourself; everyone else is already taken.</span>
-							</div>
-							<div class="sumber">
-								<i class="glyphicon glyphicon-minus"></i> <span>Oscar Wilde</span>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="displayQuote">
-							<div class="quote">
-								<i class="fa fa-quote-left" aria-hidden="true"></i> <span class="text">Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.</span>
-							</div>
-							<div class="sumber">
-								<i class="glyphicon glyphicon-minus"></i> <span>Albert Einstein</span>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="displayQuote">
-							<div class="quote">
-								<i class="fa fa-quote-left" aria-hidden="true"></i> <span class="text">Be who you are and say what you feel, because those who mind don't matter, and those who matter don't mind.</span>
-							</div>
-							<div class="sumber">
-								<i class="glyphicon glyphicon-minus"></i> <span>Bernard M. Baruch</span>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="displayQuote">
-							<div class="quote">
-								<i class="fa fa-quote-left" aria-hidden="true"></i> <span class="text">A room without books is like a body without a soul.</span>
-							</div>
-							<div class="sumber">
-								<i class="glyphicon glyphicon-minus"></i> <span>Marcus Tullius Cicero</span>
-							</div>
-						</div>
-					</li>
+					<?php } ?>
 				</ul>
 			</div>
 			<div class="tambahQuote" style="float: right; padding-top: 10px; padding-right: 10px;">
