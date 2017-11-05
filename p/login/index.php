@@ -28,35 +28,35 @@
 		
 
 		function validateLogin(){
-				getURLS();
-				var email = document.forms["login-form"]["email"].value;
-				var password = document.forms["login-form"]["password"].value;
-				if(email == "" || password == ""){
-					document.getElementById("warning-label").innerHTML = "Semua kolom harus diisi";
-					document.getElementById("warning-label").style.display = "";
-				} else {
-					document.getElementById("warning-label").style.display = "none";
-					$.ajax({
-		                dataType: 'html',
-		                url:'../../ajax/loginRequest.php',
-		                method:'post',
-		                data : {'email':email,'password':password },
-		                success:function(response){
-		                	alert(response);
-		                	if(response == "y"){
-		                		if(prevURL == rootURL+"/p/register/"){
-		                			window.location = rootURL;
-		                		} else {
-		                			window.location = prevURL;
-		                		}
-		                	} else {
-		                		document.getElementById("warning-label").innerHTML = "Password atau Email salah";
-								document.getElementById("warning-label").style.display = "";
-		                	}
-		                }
-		            });
-				}
+			getURLS();
+			var email = document.forms["login-form"]["email"].value;
+			var password = document.forms["login-form"]["password"].value;
+			if(email == "" || password == ""){
+				document.getElementById("warning-label").innerHTML = "Semua kolom harus diisi";
+				document.getElementById("warning-label").style.display = "";
+			} else {
+				document.getElementById("warning-label").style.display = "none";
+				$.ajax({
+		            dataType: 'html',
+		            url:'../../ajax/loginRequest.php',
+		            method:'post',
+		            data : {'email':email,'password':password },
+		            success:function(response){
+		            	alert(response);
+		            	if(response == "y"){
+		            		if(prevURL == rootURL+"/p/register/"){
+		            			window.location = rootURL;
+		            		} else {
+		            			window.location = prevURL;
+		            		}
+		            	} else {
+		            		document.getElementById("warning-label").innerHTML = "Password atau Email salah";
+							document.getElementById("warning-label").style.display = "";
+		            	}
+		            }
+		        });
 			}
+		}
 		
 	</script>
 </head>

@@ -145,7 +145,7 @@
 		.grid-item { display: inline-block; }
 		.grid-item li { list-style-type: none; display: inline; float: left; padding-right: 5px; padding-bottom: 5px;}
 		.home-newbook { display: flex; flex-flow: column; width: 100%; }
-		.home-newbook button { float: right; margin-right: 40px; }
+		.home-newbook .btn { float: right; margin-right: 40px; }
 
 		/* RegisterLogin Page */
 		.loginregisterContainer { width: 550px; display: block; margin: auto; padding: 25px 52px 12px; margin-bottom: 100px; border: 1px solid lightgrey; border-radius: 15px;}

@@ -102,50 +102,6 @@
 								<a href="" style="float: right;">Read More</a>
 							</div>
 						</div>
-						<!--
-						<div class="home-reviews">
-							<div class="tanggal">
-								<?php// echo date('d m Y'); ?>
-							</div>
-							<div class="judul click">
-								The Adventures of Captain Underpants
-							</div>
-							<div class="user">
-								<div class="profpic">
-								</div>
-								<div class="nama click">
-									Nikmatun Sabil
-								</div>
-							</div>
-							<div class="review">
-								"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-							</div>
-							<div class="bottomsection">
-								<a href="" style="float: right;">Read More</a>
-							</div>
-						</div>
-						<div class="home-reviews">
-							<div class="tanggal">
-								<?php //echo date('d m Y'); ?>
-							</div>
-							<div class="judul click">
-								The Tiger's Daughter
-							</div>
-							<div class="user">
-								<div class="profpic">
-								</div>
-								<div class="nama click">
-									Nikmatun Sabil
-								</div>
-							</div>
-							<div class="review">
-								"fsugoi"
-							</div>
-							<div class="bottomsection">
-								<a href="" style="float: right;">Read More</a>
-							</div>
-						</div>
-						-->
 						<?php } ?>
 					</div>
 				</div>
@@ -333,7 +289,7 @@
 									<div class="displayBuku small2">
 										<img src="images/<?php echo $gambarBuku;?>" align="center">
 										<div class="book-detail">
-											<div class="book-name"><a href="<?php echo "p/book/index.php?id=".$dataBuku['idbuku'] ?>"><?php echo $dataBuku['judul'];?></div>
+											<div class="book-name"><a href="<?php echo 'p/book/index.php?id='.$dataBuku['idbuku']; ?>"><?php echo $dataBuku['judul'];?></a></div>
 											<div class="book-author">by <?php echo $dataBuku['penulis'];?></div>
 											<div class="book-owner">Pemilik buku: <span><?php echo $dataBuku['namapengguna'];?></span> - <span><?php echo $dataBuku['kota'];?></span></div>
 											<div class="book-price"><span class="harga">Rp <?php echo $dataBuku['hargasewa'];?> / minggu</span></div>
@@ -344,7 +300,7 @@
 							</ul>
 						</div>
 						<div class="bot">
-							<button class="btn">Lihat Semua >></button>
+							<a href="<?php echo ROOT_URL . '/p/catalog';?>" class="btn">Lihat Semua >></a>
 						</div>
 					</div>
 				</div>
