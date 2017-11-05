@@ -92,7 +92,7 @@
 						<div class="displayBuku small2">
 							<img src="<?php echo ROOT_URL; ?>/images/<?php echo $gambarBuku;?>" align="center">
 							<div class="book-detail">
-								<div class="book-name"><?php echo $data['judul'];?></div>
+								<div class="book-name"><a href="<?php echo '../book/index.php?id='.$data['idbuku']; ?>"><?php echo $data['judul'];?></a></div>
 								<div class="book-author">by <?php echo $data['penulis'];?></div>
 								<div class="book-owner">Pemilik buku: <span><?php echo $data['username'];?></span> - <span><?php echo $data['kota'];?></span></div>
 								<div class="book-price"><span class="harga">Rp <?php echo $data['hargasewa'];?> / minggu</span><button type="button" class="btn add-to-cart"><i class="glyphicon glyphicon-plus"></i><i class="glyphicon glyphicon-shopping-cart"></i></button></div>

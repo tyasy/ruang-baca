@@ -117,9 +117,9 @@
 		.book-price { display: flex; border: 1px solid lightgrey; min-height: 43px; padding: 5px; padding-top: 0px; font-size: 0.8em; text-align: center;}
 		.book-price.giveaway .harga { text-align: center;}
 		.book-price > .harga { font-size: 1.1em; flex: 3; padding-top: 11px; font-weight: bold }
-		.book-price > button { flex: 2; background-color: #7cb71b; font-weight: bold; font-size: 1.1em; color: white;}
+		.book-price button, .book-price .button { flex: 2; background-color: #7cb71b; font-weight: bold; font-size: 1.1em; color: white;}
 		.displayBuku .book-detail { padding-left: 12px; }
-		.displayBuku button { padding: 0px; margin-top: 5px; font-size: 1.2em; }
+		.displayBuku button, .displayBuku .button { padding: 0px; margin-top: 5px; font-size: 1.2em; }
 		.displayBuku.small { width: 90%; flex-flow: column }
 		.displayBuku.small .top { display: flex; }
 		.displayBuku.small img { height: 210px; }
