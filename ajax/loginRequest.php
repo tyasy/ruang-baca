@@ -14,6 +14,7 @@
 			$_SESSION['namapengguna'] = $data['alamat'];
 			$_SESSION['kota'] = $data['kota'];
 			$_SESSION['email'] = $data['email'];
+			$_SESSION['cart'] = array();
 		}
 	}
 ?>

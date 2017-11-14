@@ -1,3 +1,7 @@
+<?php
+	session_start();
+	include("../../config.php");
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +15,33 @@
     <script type="text/javascript" src="../../js/jquery.js"></script>
 	<script type="text/javascript" src="../../js/bootstrap.js"></script>
 	<script type="text/javascript" src="../../js/jquery-ui.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var menuButtons = document.querySelectorAll('.menuButton');
+			console.log(menuButtons);
+			var contentPanel = document.querySelectorAll('.profile-content');
+			var forEach = Array.prototype.forEach;
+			setActive(0);
+			forEach.call(menuButtons,addListener);
+			function addListener(el, i){
+				el.addEventListener('click', function(){
+					setActive(i);
+				})
+			}
+
+			function removeActive(el){
+				el.classList.remove('active');
+			}
+
+			function setActive(i){
+				forEach.call(menuButtons, removeActive);
+				forEach.call(contentPanel, removeActive);
+				menuButtons[i].classList.add('active');
+				contentPanel[i].classList.add('active');
+			}
+		});
+		
+	</script>
 </head>
 <body>
 <div class="backgroundHeader">
@@ -25,22 +56,27 @@
 						Konten Saya
 					</div>
 					<ul>
-						<li>Quotes</li>
-						<li class="active">Buku</li>
-						<li>Trade Request</li>
-						<li>Posts</li>
+						<li class="menuButton">Quotes</li>
+						<li class="menuButton">Buku</li>
+						<li class="menuButton">Trade Request</li>
+						<li class="menuButton">Posts</li>
 					</ul>
 					<div class="sectionTitle3">
 						Profil Saya
 					</div>
 					<ul>
-						<li>Peminjaman</li>
-						<li>Inbox</li>
-						<li>Detail Account</li>
-						<li>Pengaturan</li>
+						<li class="menuButton">Peminjaman</li>
+						<li class="menuButton">Inbox</li>
+						<li class="menuButton">Detail Account</li>
+						<li class="menuButton">Pengaturan</li>
 					</ul>
 				</div>
 				<div class="col-md-9 profile-mainpage">
+					<div class="profile-content">
+						<div class="header">
+							<h2>Quotes</h2>
+						</div>
+					</div>
 					<div class="profile-content profile-buku">
 						<div class="header">
 							<h2>Buku Saya</h2>
@@ -118,8 +154,14 @@
 										<div class="book-detail">
 											<div class="book-name">Finding Magic</div>
 											<div class="book-author">by Sally Quinn</div>
-											<div class="book-owner">Pemilik buku: <span>Tyas Yuni</span> - <span>Jakarta</span></div>
-											<div class="book-price"><span class="harga">Rp 25.000 / minggu</span><button type="button" class="btn add-to-cart"><i class="glyphicon glyphicon-plus"></i><i class="glyphicon glyphicon-shopping-cart"></i></button></div>
+											<div class="bookstatus">
+												<span>Status Buku:</span>
+												<span>Dipinjam</span>
+											</div>
+											<div class="operations">
+												<button type="button" class="btn add-to-cart"><i class="glyphicon glyphicon-trash"></i></button>
+												<button type="button" class="btn add-to-cart"><i class="glyphicon glyphicon-edit"></i></button>
+											</div>
 										</div>
 									</div>
 								</li>
@@ -129,8 +171,14 @@
 										<div class="book-detail">
 											<div class="book-name">The Diary of a Young Girl</div>
 											<div class="book-author">by Anne Frank</div>
-											<div class="book-owner">Pemilik buku: <span>Tyas Yuni</span> - <span>Jakarta</span></div>
-											<div class="book-price"><span class="harga">Rp 15.000 / minggu</span><button type="button" class="btn add-to-cart"><i class="glyphicon glyphicon-plus"></i><i class="glyphicon glyphicon-shopping-cart"></i></button></div>
+											<div class="bookstatus">
+												<span>Status Buku:</span>
+												<span>Dipinjam</span>
+											</div>
+											<div class="operations">
+												<button type="button" class="btn add-to-cart"><i class="glyphicon glyphicon-trash"></i></button>
+												<button type="button" class="btn add-to-cart"><i class="glyphicon glyphicon-edit"></i></button>
+											</div>
 										</div>
 									</div>
 								</li>
@@ -140,8 +188,14 @@
 										<div class="book-detail">
 											<div class="book-name">The Designer</div>
 											<div class="book-author">by Marius Gabriel</div>
-											<div class="book-owner">Pemilik buku: <span>Tyas Yuni</span> - <span>Jakarta</span></div>
-											<div class="book-price"><span class="harga">Rp 25.000 / minggu</span><button type="button" class="btn add-to-cart"><i class="glyphicon glyphicon-plus"></i><i class="glyphicon glyphicon-shopping-cart"></i></button></div>
+											<div class="bookstatus">
+												<span>Status Buku:</span>
+												<span>Dipinjam</span>
+											</div>
+											<div class="operations">
+												<button type="button" class="btn add-to-cart"><i class="glyphicon glyphicon-trash"></i></button>
+												<button type="button" class="btn add-to-cart"><i class="glyphicon glyphicon-edit"></i></button>
+											</div>
 										</div>
 									</div>
 								</li>
@@ -151,8 +205,14 @@
 										<div class="book-detail">
 											<div class="book-name">The Tiger's Daughter</div>
 											<div class="book-author">by K. Arsenault Rivera</div>
-											<div class="book-owner">Pemilik buku: <span>Tyas Yuni</span> - <span>Jakarta</span></div>
-											<div class="book-price"><span class="harga">Rp 25.000 / minggu</span><button type="button" class="btn add-to-cart"><i class="glyphicon glyphicon-plus"></i><i class="glyphicon glyphicon-shopping-cart"></i></button></div>
+											<div class="bookstatus">
+												<span>Status Buku:</span>
+												<span>Dipinjam</span>
+											</div>
+											<div class="operations">
+												<button type="button" class="btn add-to-cart"><i class="glyphicon glyphicon-trash"></i></button>
+												<button type="button" class="btn add-to-cart"><i class="glyphicon glyphicon-edit"></i></button>
+											</div>
 										</div>
 									</div>
 								</li>
@@ -162,8 +222,14 @@
 										<div class="book-detail">
 											<div class="book-name">The Adventures of Captain Underpants</div>
 											<div class="book-author">by Dav Pilkey</div>
-											<div class="book-owner">Pemilik buku: <span>Tyas Yuni</span> - <span>Jakarta</span></div>
-											<div class="book-price"><span class="harga">Rp 25.000 / minggu</span><button type="button" class="btn add-to-cart"><i class="glyphicon glyphicon-plus"></i><i class="glyphicon glyphicon-shopping-cart"></i></button></div>
+											<div class="bookstatus">
+												<span>Status Buku:</span>
+												<span>Dipinjam</span>
+											</div>
+											<div class="operations">
+												<button type="button" class="btn add-to-cart"><i class="glyphicon glyphicon-trash"></i></button>
+												<button type="button" class="btn add-to-cart"><i class="glyphicon glyphicon-edit"></i></button>
+											</div>
 										</div>
 									</div>
 								</li>
@@ -177,6 +243,21 @@
 								<li><a href="#">4</a></li>
 								<li><a href="#">5</a></li>
 							</ul>
+						</div>
+					</div>
+					<div class="profile-content">
+						<div class="header">
+							<h2>Trade</h2>
+						</div>
+					</div>
+					<div class="profile-content">
+						<div class="header">
+							<h2>Posts</h2>
+						</div>
+					</div>
+					<div class="profile-content">
+						<div class="header">
+							<h2>Peminjaman</h2>
 						</div>
 					</div>
 				</div>

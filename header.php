@@ -1,3 +1,71 @@
+	<script type="text/javascript">
+		$(document).ready(function(){
+			Storage.prototype.setObj = function(key, obj) {
+			    return this.setItem(key, JSON.stringify(obj))
+			}
+			Storage.prototype.getObj = function(key) {
+			    return JSON.parse(this.getItem(key))
+			}
+			refreshCart();
+
+			function refreshCart(){
+				var cart = localStorage.getObj('cart');
+				for (var i = cart.length - 1; i >= 0; i--) {
+					getBookToCart(cart[i],i);
+				}
+			}
+			
+			function cartItemCount(){
+				var item = document.getElementsByClassName('cartItem');
+				var price = document.getElementsByClassName('cartItemPrice');
+				var total = 0;
+				document.getElementById('cartItemCount').innerHTML = item.length;
+				for (var i = price.length - 1; i >= 0; i--) {
+					total += parseInt(price[i].innerHTML);
+				}
+				document.getElementById('cartPriceTotal').innerHTML = total;
+			}
+
+			function getBookToCart(idbuku, i){
+				$.ajax({
+				    dataType: 'html',
+				    url:'../../ajax/getBookToCart.php',
+				    method:'post',
+				    data : {'idbuku':idbuku, 'num':i},
+				    success:function(response){
+				    	var divider = document.getElementById('divider');
+				    	var li = document.createElement('li');
+				    	li.innerHTML = response;
+				    	li.className = "cartItem";
+				    	divider.parentNode.insertBefore(li,divider);
+				    	cartItemCount();
+				    }
+				});
+			}
+		});
+		function removeFromCart(idbuku){
+			Storage.prototype.setObj = function(key, obj) {
+			    return this.setItem(key, JSON.stringify(obj))
+			}
+			Storage.prototype.getObj = function(key) {
+			    return JSON.parse(this.getItem(key))
+			}
+			var cart = localStorage.getObj('cart');
+			var index = cart.indexOf(idbuku);
+			if(index > -1){
+				cart.splice(index, 1);
+			}
+			localStorage.setObj('cart',cart);
+			location.reload();
+		}
+		function emptyCart(){
+			if(confirm("Kosongkan keranjang?")){
+				var cart = [];
+				localStorage.setObj('cart',cart);
+				location.reload();
+			}
+		}
+	</script>
 	<div class="header">
 		<label id="ROOT-URL" style="display: none"><?php echo ROOT_URL; ?></label>
 		<div class="topcolor" style="height: 10px; background-color: #7cb71b"></div>
@@ -9,29 +77,13 @@
 				<div class="dropdown">
 					<button class="cartBtn dropdown-toggle" type="button" data-toggle="dropdown">
 						<span class="cart-icon"><i class="glyphicon glyphicon-shopping-cart"></i> Cart</span>
-						<div class="cart-info"><span>2</span> Item(s) | Rp <span>40.000</span></div>
+						<div class="cart-info"><span id="cartItemCount"></span> Item(s) | Rp <span id="cartPriceTotal"></span></div>
 					</button>
-					<ul class="dropdown-menu cart-dropdown">
-						<li class="cartItem">
-							<img src="<?php echo ROOT_URL . '/images/buku-4.JPG';?>">
-							<div class="cartItem-info">
-								<div class="cartItem-name">Elite: Reclamation</div>
-								<div class="cartItem-author">by Drew Wagar</div>
-								<div class="cartItem-price">Rp <span>20.000</span><button><span class="glyphicon glyphicon-remove"></span> Hapus</button></div>
-							</div>
-						</li>
-						<li class="cartItem">
-							<img src="<?php echo ROOT_URL . '/images/buku-5.JPG';?>">
-							<div class="cartItem-info">
-								<div class="cartItem-name">Red Hope (A Novel)</div>
-								<div class="cartItem-author">by John Dreese</div>
-								<div class="cartItem-price">Rp <span>20.000</span><button><span class="glyphicon glyphicon-remove"></span> Hapus</button></div>
-							</div>
-						</li>
-						<li class="divider"></li>
+					<ul class="dropdown-menu cart-dropdown" id="cartItemList">
+						<li class="divider" id="divider"></li>
 						<li>
-							<button class="btn clear-cart"><span class="glyphicon glyphicon-remove"></span> Kosongkan</button>
-							<button class="btn checkout" style="float: right;"><span class="glyphicon glyphicon-share"></span> Check Out</button>
+							<button onclick="emptyCart()" class="btn clear-cart"><span class="glyphicon glyphicon-remove"></span> Kosongkan</button>
+							<button onclick="window.location.href = '<?php echo ROOT_URL . '/p/checkout';?>'" class="btn checkout" style="float: right;"><span class="glyphicon glyphicon-share"></span> Check Out</button>
 						</li>
 					</ul>
 				</div>
