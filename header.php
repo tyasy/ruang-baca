@@ -27,9 +27,10 @@
 			}
 
 			function getBookToCart(idbuku, i){
+				var url = document.getElementById("ROOT-URL").innerHTML + "/ajax/getBookToCart.php";
 				$.ajax({
 				    dataType: 'html',
-				    url:'../../ajax/getBookToCart.php',
+				    url:url,
 				    method:'post',
 				    data : {'idbuku':idbuku, 'num':i},
 				    success:function(response){
@@ -89,7 +90,7 @@
 				</div>
 			</div>
 			<?php if(isset($_SESSION['username'])){?>
-				<button class="btn userProfile">
+				<button class="btn userProfile" onclick="window.location.href = '<?php echo ROOT_URL . '/p/profile';?>'">
 					<table>
 						<tr>
 							<td class="profpic"></td>
