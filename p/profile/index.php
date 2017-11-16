@@ -76,6 +76,91 @@
 						<div class="header">
 							<h2>Quotes</h2>
 						</div>
+						<button class="btn" data-toggle="collapse" data-target="#tambah-quote">Tambah Quote</button>
+						<div class="tambah-quote collapse" id="tambah-quote">
+							<form class="form-horizontal">
+								<div class="form-group">
+									<label class="control-label col-md-3" for="quote">Quote</label>
+									<div class="col-md-9">
+										<textarea class="form-control" rows="5" id="quote"></textarea>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-3" for="sumber">Sumber</label>
+									<div class="col-md-9">
+										<input type="text" name="tambahquote-sumber" id="sumber" class="form-control">
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-2 col-sm-10">
+										<button class="btn" style="float: right;">Simpan</button>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="quotesWrapper grid-item">
+							<ul>
+								<li>
+									<div class="displayQuote">
+										<div class="quote">
+											<i class="fa fa-quote-left" aria-hidden="true"></i> <span class="text">"Hidup tanpa cinta bagai taman tak berbunga"</span>
+										</div>
+										<div class="sumber">
+											<i class="glyphicon glyphicon-minus"></i> <span>Rhoma Irama</span>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="displayQuote">
+										<div class="quote">
+											<i class="fa fa-quote-left" aria-hidden="true"></i> <span class="text">Be yourself; everyone else is already taken.</span>
+										</div>
+										<div class="sumber">
+											<i class="glyphicon glyphicon-minus"></i> <span>Oscar Wilde</span>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="displayQuote">
+										<div class="quote">
+											<i class="fa fa-quote-left" aria-hidden="true"></i> <span class="text">Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.</span>
+										</div>
+										<div class="sumber">
+											<i class="glyphicon glyphicon-minus"></i> <span>Albert Einstein</span>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="displayQuote">
+										<div class="quote">
+											<i class="fa fa-quote-left" aria-hidden="true"></i> <span class="text">Be who you are and say what you feel, because those who mind don't matter, and those who matter don't mind.</span>
+										</div>
+										<div class="sumber">
+											<i class="glyphicon glyphicon-minus"></i> <span>Bernard M. Baruch</span>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="displayQuote">
+										<div class="quote">
+											<i class="fa fa-quote-left" aria-hidden="true"></i> <span class="text">A room without books is like a body without a soul.</span>
+										</div>
+										<div class="sumber">
+											<i class="glyphicon glyphicon-minus"></i> <span>Marcus Tullius Cicero</span>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="pagination-wrapper">
+							<ul class="pagination">
+								<li class="active"><a href="#">1</a></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#">5</a></li>
+							</ul>
+						</div>
 					</div>
 					<div class="profile-content profile-buku">
 						<div class="header">
@@ -249,6 +334,43 @@
 						<div class="header">
 							<h2>Trade</h2>
 						</div>
+						<table>
+							<form action="index.php" method="POST">
+ 								<tr><td>request</td><td><input type="text" name="request" id="request" class="texbox" size="25px" required="required" ></td></tr>
+ 								<tr><td>offer</td><td><input type="text" name="offer" id="offer" class="texbox" size="25px" required="required"></td></tr>
+ 								<tr><td>Status</td><td><input type="text" name="status" id="status" class="texbox" size="25px" required="required"></td></tr>
+ 								<tr><td>judul trade</td><td><input type="text" name="judultrade" id="judulbuku" class="texbox" size="25px" required="required"></td></tr>
+ 							 	<tr><td colspan="2"><input type="submit" name="trade" value="SIMPAN"><input type="reset" name="reset" value="BATAL"></td></tr>
+ 							</form>
+ 						</table>
+						<table border=1 align="center" border='10' width='50%' cellpadding='10'  cellspacing='10' align='center' bgcolor="##009688">
+							<thead>
+								<th>
+									<td>request</td>
+									<td>offer</td>
+									<td>status</td>
+									<td>judul trade</td>
+								</th>
+							</thead>
+							<tbody>
+								<tr>
+								<?php
+									$i=1;//deklarasi variabel $i untuk nilai urut
+									/*buat query*/
+									$q = mysqli_query($db,"select * from trade");
+									/*loop data yang didapat berdasarkan query yang dijalankan*/
+									while($d = mysqli_fetch_array($q)){
+									/*lihat penjelasan no 2.a.*/
+										echo
+											"<tr>
+											<td>$d[request]</td>
+											<td>$d[offer]</td>
+											<td>$d[status]</td>
+											<td>$d[judultrade]</td></tr>";
+										$i++;
+									} ?>
+							</tbody>
+    					</table>
 					</div>
 					<div class="profile-content">
 						<div class="header">

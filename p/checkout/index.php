@@ -113,7 +113,7 @@
 						</h4>
 					</div>
 					<div class="bottom-buttons">
-						<button class="btn kembali-btn"><i class="fa fa-chevron-left"></i> Kembali</button>
+						<button onclick="window.location.href = '<?php echo ROOT_URL;?>'" class="btn kembali-btn"><i class="fa fa-chevron-left"></i> Kembali</button>
 						<button class="btn lanjut-btn float-right">Pilih Metode Pembayaran <i class="fa fa-chevron-right"></i></button>
 					</div>
 				</div>
